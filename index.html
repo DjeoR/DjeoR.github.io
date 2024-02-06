@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="eng-aus">
     <head>
-        <title>Django Richardson Expedition Journal</title>
-        <link href="./style.css" rel="stylesheet">
+        <title>Artificial Life</title>
+        <link rel="stylesheet" href="style.css">
     </head>
+
     <body>
-        <h1>OUTDOOR EXPEDITION JOURNAL</h1>
-        <div id="name">
-            <h2>Django Richardson</h2>
+        <div id="canvasdiv">
+            <canvas id="canvas" width="600" height="600"></canvas>
         </div>
-        <div id="year">2023</div>
-
-        <div class="list">
-            <div id="freycinet">
-                <div class="link">
-                    <a href="./Camps/freycinet.html"><b>Freycinet Bushwalk</b><br><br>17-19 March</a>
-                </div>
-                <div class="photo">
-                    <img src="./Cover Photos/freycinetCover.jpeg">
-                </div>
+        <div id="optiondiv">
+            <div id="generaloptions" class="optionsection">
+                <h3>General</h3>
+                <button id="reset" onclick="reset();">RESET</button>
+                <button id="step" onclick="step()">STEP</button>
+                <button id="play-pause" onclick="play_pause()">PLAY</button>
+                <br>
+                <label for="speed">Speed:</label>
+                <input id="speed" type="range">
+                <br>
+                <label for="size">Size:</label>
+                <input id="size" type="range" min="25" max="500" step="25">
             </div>
-
-            <div id="rafting">
-                <div class="photo">
-                    <img src="./Cover Photos/raftingCover.jpeg">
-                </div>
-                <div class="link">
-                    <a href="./Camps/rafting.html"><b>Rafting on the Picton</b><br><br>31 March<br>- 1 April</a>
-                </div>
+            <div class="optionsection">
+                <h3>Kernel 1</h3>
+                <label for="kernel1radius">Radius:</label>
+                <input id="kernel1radius" type="range" min="1" max="10" step="1">
+                <label for="kernel1circle">Circle:</label>
+                <input id="kernel1circle" type="checkbox">
+                <br>
+                <span class="from-to">
+                    <label for="kernel1alivefrom">Remain alive from:</label>
+                    <input id="kernel1alivefrom" type="text" size="1">
+                    <label for="kernel1aliveto">to:</label>
+                    <input id="kernel1aliveto" type="text" size="1">
+                </span>
+                <br>
+                <span class="from-to">
+                    <label for="kernel1spawnfrom">Spawn from:</label>
+                    <input id="kernel1spawnfrom" type="text" size="1">
+                    <label for="kernel1spawnto">to:</label>
+                    <input id="kernel1spawnto" type="text" size="1">
+                </span>
+            </div>
+            <div class="optionsection">
+                <h3>Kernel 2</h3>
+                <label for="kernel2radius">Radius:</label>
+                <input id="kernel2radius" type="range" min="1" max="10">
             </div>
         </div>
     </body>
+    <script src="main.js"></script>
+
 </html>

@@ -11,38 +11,69 @@
             <canvas id="canvas" width="600" height="600"></canvas>
         </div>
         <div id="optiondiv">
-            <div id="generaloptions" class="optionsection">
+            <div class="optionsection">
                 <h3>General</h3>
                 <button id="reset" onclick="reset();">RESET</button>
-                <button id="step" onclick="step()">STEP</button>
-                <button id="play-pause" onclick="play_pause()">PLAY</button>
+                <button id="step" onclick="step();">STEP</button>
+                <button id="play-pause" onclick="playPause();">RESET</button>
                 <br>
-                <label for="speed">Speed:</label>
-                <input id="speed" type="range">
-                <br>
-                <label for="size">Size:</label>
-                <input id="size" type="range" min="25" max="500" step="25">
+                <table>
+                    <tr>
+                        <th>Speed</th>
+                        <td><input id="speed" type="range" value="52" oninput="updateSpeed()" width="200"></td>
+                        <td id="speeddisplay"></td>
+                    </tr>
+                    <tr>
+                        <th>Density</th>
+                        <td><input id="density" type="range" step="1" oninput="updateSettings()"></td>
+                        <td id="densitydisplay"></td>
+                    </tr>
+                    <tr>
+                        <th>Size</th>
+                        <td><input id="size" type="range" min="25" max="500" step="25" value="100" oninput="updateSettings()"></td>
+                        <td id="sizedisplay"></td>
+                    </tr>
+                    <tr>
+                        <th>Pattern</th>
+                        <td><select id="pattern">
+                            <option value="random">Random noise</option>
+                            <option value="center">Center circle</option>
+                            <option value="blank">Blank</option>
+                        </select></td>
+                    </tr>
+                </table>
             </div>
             <div class="optionsection">
                 <h3>Kernel 1</h3>
-                <label for="kernel1radius">Radius:</label>
-                <input id="kernel1radius" type="range" min="1" max="10" step="1">
-                <label for="kernel1circle">Circle:</label>
-                <input id="kernel1circle" type="checkbox">
-                <br>
-                <span class="from-to">
-                    <label for="kernel1alivefrom">Remain alive from:</label>
-                    <input id="kernel1alivefrom" type="text" size="1">
-                    <label for="kernel1aliveto">to:</label>
-                    <input id="kernel1aliveto" type="text" size="1">
-                </span>
-                <br>
-                <span class="from-to">
-                    <label for="kernel1spawnfrom">Spawn from:</label>
-                    <input id="kernel1spawnfrom" type="text" size="1">
-                    <label for="kernel1spawnto">to:</label>
-                    <input id="kernel1spawnto" type="text" size="1">
-                </span>
+                <table>
+                    <tr>
+                        <th>Circle</th>
+                        <td><input id="k1type" type="checkbox" oninput="updateSettings()"></td>
+                    </tr>
+                    <tr>
+                        <th>Radius</th>
+                        <td><input id="k1radius" type="range" min="1" max="10" step="1" oninput="updateSettings()" value="1"></td>
+                        <td id="k1radiusdisplay"></td>
+                    </tr>
+                    <tr>
+                        <th>Live</th>
+                        <td>
+                            <span>from:</span>
+                            <input id="k1livefrom" type="text" size="1" value="2">
+                            <span>to:</span>
+                            <input id="k1liveto" type="text" size="1" value="3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Spawn</th>
+                        <td>
+                            <span>from:</span>
+                            <input id="k1spawnfrom" type="text" size="1" value="3">
+                            <span>to:</span>
+                            <input id="k1spawnto" type="text" size="1" value="3">
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="optionsection">
                 <h3>Kernel 2</h3>
